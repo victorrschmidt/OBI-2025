@@ -78,6 +78,42 @@ void debug(const std::map<K, V>& mp, const std::string& name = "map") {
     std::cout << "}\n";
 }
 
+template<typename T>
+void debug(const std::vector<std::vector<T>>& m, const std::string& name = "matrix") {
+    std::cout << "[DEBUG] " << name << " = {\n";
+    if constexpr (std::is_same<T, std::string>::value) {
+        for (int i = 0; i < (int) m.size(); i++) {
+            std::cout << "  {";
+            for (int j = 0; j < (int) m[i].size(); j++) {
+                std::cout << "\"" << m[i][j] << "\"" << (j < (int) m[i].size() - 1 ? ", " : "}");
+            }
+            if (m[i].empty()) {
+                std::cout << "}";
+            }
+            if (i < (int) m.size() - 1) {
+                std::cout << ",";
+            }
+            std::cout << "\n";
+        }
+    }
+    else {
+        for (int i = 0; i < (int) m.size(); i++) {
+            std::cout << "  {";
+            for (int j = 0; j < (int) m[i].size(); j++) {
+                std::cout << m[i][j] << (j < (int) m[i].size() - 1 ? ", " : "}");
+            }
+            if (m[i].empty()) {
+                std::cout << "}";
+            }
+            if (i < (int) m.size() - 1) {
+                std::cout << ",";
+            }
+            std::cout << "\n";
+        }
+    }
+    std::cout << "}\n";
+}
+
 #else
 
 template<typename T>
