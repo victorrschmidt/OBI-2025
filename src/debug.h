@@ -40,37 +40,40 @@ template<typename T>
 void debug(const std::set<T>& st, const std::string& name = "set") {
     std::cout << "[DEBUG] " << name << " = {";
     int i = 0;
-    for (const auto& val : st) {
-        if constexpr (std::is_same<T, std::string>::value) {
-            std::cout << "\"";
+    if constexpr (std::is_same<T, std::string>::value) {
+        for (const auto& val : st) {
+            std::cout << "\"" << val << "\"" << (i++ < (int) st.size() - 1 ? ", " : "}\n");
         }
-        std::cout << val;
-        if constexpr (std::is_same<T, std::string>::value) {
-            std::cout << "\"";
+    }
+    else {
+        for (const auto& val : st) {
+            std::cout << val << (i++ < (int) st.size() - 1 ? ", " : "}\n");
         }
-        std::cout << (i++ < (int) st.size() - 1 ? ", " : "}\n");
     }
 }
 
 template<typename K, typename V>
 void debug(const std::map<K, V>& mp, const std::string& name = "map") {
     std::cout << "[DEBUG] " << name << " = {\n";
-    for (const auto& [key, value] : mp) {
-        std::cout << "  ";
-        if constexpr (std::is_same<K, std::string>::value) {
-            std::cout << "\"" << key << "\"";
+    if constexpr (std::is_same<K, std::string>::value && std::is_same<V, std::string>::value) {
+        for (const auto& [key, value] : mp) {
+            std::cout << "  \"" << key << "\": \"" << value << "\"\n";
         }
-        else {
-            std::cout << key;
+    }
+    else if (std::is_same<K, std::string>::value) {
+        for (const auto& [key, value] : mp) {
+            std::cout << "  \"" << key << "\": " << value << "\n";
         }
-        std::cout << ": ";
-        if constexpr (std::is_same<V, std::string>::value) {
-            std::cout << "\"" << value << "\"";
+    }
+    else if (std::is_same<V, std::string>::value) {
+        for (const auto& [key, value] : mp) {
+            std::cout << "  " << key << ": \"" << value << "\"\n";
         }
-        else {
-            std::cout << value;
+    }
+    else {
+        for (const auto& [key, value] : mp) {
+            std::cout << "  " << key << ": " << value << "\n";
         }
-        std::cout << "\n";
     }
     std::cout << "}\n";
 }
