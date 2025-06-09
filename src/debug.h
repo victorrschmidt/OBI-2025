@@ -11,107 +11,89 @@
 #define DEBUG_MODE
 #ifdef DEBUG_MODE
 
+void debug_init(const std::string& name = "") {
+    std::cout << "[DEBUG] " << name << " = ";
+}
+void debug_string(const std::string& value) {
+    std::cout << "\"" << value << "\"";
+}
+template<typename Container>
+void debug_container(const Container& container) {
+    std::cout << "{";
+    if (container.empty()) {
+        std::cout << "}";
+        return;
+    }
+    using T = typename Container::value_type;
+    int i = 0;
+    if constexpr (std::is_same<T, std::string>::value) {
+        for (auto it = container.begin(); it != container.end(); it++) {
+            debug_string(*it);
+            std::cout << (i++ < (int) container.size() - 1 ? ", " : "}");
+        }
+    }
+    else {
+        for (auto it = container.begin(); it != container.end(); it++) {
+            std::cout << *it << (i++ < (int) container.size() - 1 ? ", " : "}");
+        }
+    }
+}
+template<typename K, typename V>
+void debug_map(const std::map<K, V>& mp) {
+    std::cout << "{";
+    if (mp.empty()) {
+        std::cout << "}";
+        return;
+    }
+    std::cout << "\n";
+    for (const auto& [key, value] : mp) {
+        std::cout << "  ";
+        if constexpr (std::is_same<K, std::string>::value) {
+            debug_string(key);
+        }
+        else {
+            std::cout << key;
+        }
+        std::cout << ": ";
+        if constexpr (std::is_same<V, std::string>::value) {
+            debug_string(value);
+        }
+        else {
+            std::cout << value;
+        }
+        std::cout << "\n";
+    }
+    std::cout << "}";
+}
+
 template<typename T>
 typename std::enable_if<!std::is_same<T, std::string>::value && !std::is_class<T>::value>::type
 debug(const T& value, const std::string& name = "") {
-    std::cout << "[DEBUG] " << name << " = " << value << "\n";
+    debug_init(name);
+    std::cout << value << "\n";
 }
-
 void debug(const std::string& value, const std::string& name = "") {
-    std::cout << "[DEBUG] " << name << " = \"" << value << "\"\n";
+    debug_init(name);
+    debug_string(value);
+    std::cout << "\n";
 }
-
 template<typename T>
 void debug(const std::vector<T>& vec, const std::string& name = "vector") {
-    std::cout << "[DEBUG] " << name << " = {";
-    if constexpr (std::is_same<T, std::string>::value) {
-        for (int i = 0; i < (int) vec.size(); i++) {
-            std::cout << "\"" << vec[i] << "\"" << (i < (int) vec.size() - 1 ? ", " : "}\n");
-        }
-    }
-    else {
-        for (int i = 0; i < (int) vec.size(); i++) {
-            std::cout << vec[i] << (i < (int) vec.size() - 1 ? ", " : "}\n");
-        }
-    }
+    debug_init(name);
+    debug_container(vec);
+    std::cout << "\n";
 }
-
 template<typename T>
 void debug(const std::set<T>& st, const std::string& name = "set") {
-    std::cout << "[DEBUG] " << name << " = {";
-    int i = 0;
-    if constexpr (std::is_same<T, std::string>::value) {
-        for (const auto& val : st) {
-            std::cout << "\"" << val << "\"" << (i++ < (int) st.size() - 1 ? ", " : "}\n");
-        }
-    }
-    else {
-        for (const auto& val : st) {
-            std::cout << val << (i++ < (int) st.size() - 1 ? ", " : "}\n");
-        }
-    }
+    debug_init(name);
+    debug_container(st);
+    std::cout << "\n";
 }
-
 template<typename K, typename V>
 void debug(const std::map<K, V>& mp, const std::string& name = "map") {
-    std::cout << "[DEBUG] " << name << " = {\n";
-    if constexpr (std::is_same<K, std::string>::value && std::is_same<V, std::string>::value) {
-        for (const auto& [key, value] : mp) {
-            std::cout << "  \"" << key << "\": \"" << value << "\"\n";
-        }
-    }
-    else if (std::is_same<K, std::string>::value) {
-        for (const auto& [key, value] : mp) {
-            std::cout << "  \"" << key << "\": " << value << "\n";
-        }
-    }
-    else if (std::is_same<V, std::string>::value) {
-        for (const auto& [key, value] : mp) {
-            std::cout << "  " << key << ": \"" << value << "\"\n";
-        }
-    }
-    else {
-        for (const auto& [key, value] : mp) {
-            std::cout << "  " << key << ": " << value << "\n";
-        }
-    }
-    std::cout << "}\n";
-}
-
-template<typename T>
-void debug(const std::vector<std::vector<T>>& m, const std::string& name = "matrix") {
-    std::cout << "[DEBUG] " << name << " = {\n";
-    if constexpr (std::is_same<T, std::string>::value) {
-        for (int i = 0; i < (int) m.size(); i++) {
-            std::cout << "  {";
-            for (int j = 0; j < (int) m[i].size(); j++) {
-                std::cout << "\"" << m[i][j] << "\"" << (j < (int) m[i].size() - 1 ? ", " : "}");
-            }
-            if (m[i].empty()) {
-                std::cout << "}";
-            }
-            if (i < (int) m.size() - 1) {
-                std::cout << ",";
-            }
-            std::cout << "\n";
-        }
-    }
-    else {
-        for (int i = 0; i < (int) m.size(); i++) {
-            std::cout << "  {";
-            for (int j = 0; j < (int) m[i].size(); j++) {
-                std::cout << m[i][j] << (j < (int) m[i].size() - 1 ? ", " : "}");
-            }
-            if (m[i].empty()) {
-                std::cout << "}";
-            }
-            if (i < (int) m.size() - 1) {
-                std::cout << ",";
-            }
-            std::cout << "\n";
-        }
-    }
-    std::cout << "}\n";
+    debug_init(name);
+    debug_map(mp);
+    std::cout << "\n";
 }
 
 #else
