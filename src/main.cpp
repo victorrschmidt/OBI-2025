@@ -1,9 +1,4 @@
 #include <bits/stdc++.h>
-#ifdef LOCAL
-#include "debug.h"
-#else
-#define debug(...) 1
-#endif
 using namespace std;
 using ll = long long;
 const char nl = '\n';
