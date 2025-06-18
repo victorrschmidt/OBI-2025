@@ -20,7 +20,7 @@ int main() {
 	cin >> e >> s >> l;
 
 	cout << (abs(e - s) + abs(s - l) + abs(l - e)) << '\n';
-	
+
 	return 0;
 }
 ```
