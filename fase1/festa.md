@@ -16,11 +16,11 @@ A observação relevante para este problema é o fato de que a ordem dos lugares
 using namespace std;
 
 int main() {
-	int e, s, l;
-	cin >> e >> s >> l;
+    int e, s, l;
+    cin >> e >> s >> l;
 
-	cout << (abs(e - s) + abs(s - l) + abs(l - e)) << '\n';
+    cout << (abs(e - s) + abs(s - l) + abs(l - e)) << '\n';
 
-	return 0;
+    return 0;
 }
 ```
