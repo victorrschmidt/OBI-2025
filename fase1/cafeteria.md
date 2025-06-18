@@ -41,7 +41,7 @@ int main() {
 }
 ```
 
-Outra forma de resolver esse problema é utilizando as definições matemáticas:
+Esse problema também pode ser resolvido utilizando as definições matemáticas:
 
 $$a \leq c - d \cdot x \leq b$$
 
@@ -63,7 +63,7 @@ Assim, obtemos:
 
 $$\frac{c - b}{d} \leq x \leq \frac{c - a}{d}$$
 
-Sabendo que os valores são inteiros, arredondamos os valores para cima e para baixo, da esquerda para a direita.
+Sabendo que os valores são inteiros, arredondamos os valores para cima e para baixo (ceil e floor), da esquerda para a direita.
 
 $$\lceil{\frac{c - b}{d}} \rceil \leq x \leq \lfloor{\frac{c - a}{d}} \rfloor$$
 
