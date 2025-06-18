@@ -13,3 +13,6 @@ Este repositório contém as submissões das provas da Olimpíada Brasileira de 
 # Resumo
 
 - **Modalidade:** Programação Nível Sênior
+- **Fase 1**
+    - [**Questões submetidas**](fase1)
+    - **Pontuação:** _400/400_
