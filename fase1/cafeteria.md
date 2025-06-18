@@ -63,7 +63,7 @@ Assim, obtemos:
 
 $$\frac{c - b}{d} \leq x \leq \frac{c - a}{d}$$
 
-Sabendo que os valores são inteiros, arredondamos os valores para cima e para baixo (ceil e floor), da esquerda para a direita.
+Sabendo que os valores são inteiros, arredondamos os valores para cima e para baixo (_ceil_ e _floor_), da esquerda para a direita.
 
 $$\lceil{\frac{c - b}{d}} \rceil \leq x \leq \lfloor{\frac{c - a}{d}} \rfloor$$
 
@@ -88,6 +88,6 @@ int main() {
         cout << "N\n";
     }
 
-	return 0;
+    return 0;
 }
 ```
