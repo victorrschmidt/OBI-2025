@@ -7,7 +7,7 @@ Um aluno conseguirá colar na prova se e somente se houver algum aluno com altur
 
 Formalmente, considerando $n$ o número de alunos e que cada um possui um índice $i$ tal que $(1 \leq i \leq n)$, e considerando $a_{i}$ a altura do $i$-ésimo aluno, o aluno $i$ conseguirá colar na prova se e somente se houver algum aluno $j$ tal que:
 
-$$i < j \ ∧ a_{i} < a_{j}$$
+$$i < j \ ∧ a_{i} \leq a_{j}$$
 
 Para verificar isso, vamos analisar todos os alunos da direita para a esquerda, e manter salva a maior altura que encontrarmos. Se a altura $a_{i}$ for menor ou igual a maior altura atual, significa que o aluno $i$ consegue colar. Em caso contrário, o aluno $i$ não consegue colar, e a maior altura atual passará a ser $a_{i}$. Inicialmente, a maior altura é a do aluno mais à direita, que nunca conseguirá colar.
 
