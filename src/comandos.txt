@@ -1,0 +1,7 @@
+Comando para compilação e execução
+
+Windows:
+g++ -DLOCAL main.cpp -o run && run.exe < in.txt
+
+Linux:
+g++ -DLOCAL main.cpp -o run && ./run < in.txt
