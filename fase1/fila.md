@@ -3,9 +3,9 @@
 - A solução resolve todas as subtarefas.
 - Complexidade de tempo: **$O(n)$**.
 
-Um aluno conseguirá colar na prova se e somente se houver algum aluno com altura maior ou igual a dele à sua direita.
+Um aluno conseguirá colar na prova se e somente se houver algum aluno com altura maior ou igual a dele à sua frente.
 
-Formalmente, considerando $n$ o número de alunos e que cada um possui um índice $i$ tal que $(1 \leq i \leq n)$, e considerando $a_{i}$ a altura do $i$-ésimo aluno, o aluno $i$ conseguirá colar na prova se e somente se houver algum aluno $j$ tal que:
+Formalmente, considerando $n$ o número de alunos e que cada um possui um índice $i$ tal que $(0 \leq i < n)$, e considerando $a_{i}$ a altura do $i$-ésimo aluno, o aluno $i$ conseguirá colar na prova se e somente se houver algum aluno $j$ tal que:
 
 $$i < j \ ∧ a_{i} \leq a_{j}$$
 

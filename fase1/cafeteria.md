@@ -3,11 +3,11 @@
 - A solução resolve todas as subtarefas.
 - Complexidade de tempo: **$O(1)$**.
 
-O problema consiste em responder se existe algum número de doses de café que podem ser adicionadas à xícara tal que a quantidade restante seja um número entre $a$ e $b$.
+O problema consiste em determinar se existe algum número de doses de café que podem ser adicionadas à xícara tal que a quantidade restante seja um número entre $a$ e $b$.
 
-Formalmente, o problema consiste em responder se existe algum $x \in \N$ tal que:
+Formalmente, o problema consiste em determinar o valor-verdade da seguinte proposição:
 
-$$a \leq c - d \cdot x \leq b$$
+$$\exists x \in \N (a \leq c - d \cdot x \land c - d \cdot x \leq b)$$
 
 Isso pode ser resolvido de forma iterativa, encontrando o menor valor de $x$ tal que:
 

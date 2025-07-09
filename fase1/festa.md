@@ -7,7 +7,7 @@ Considerando $E$, $S$ e $L$ como pontos em uma reta e $d(a, b)$ a distância ent
 
 $$d(E, S) + d(S, L) + d(L, E)$$
 
-A observação relevante para este problema é o fato de que a ordem dos lugares que Luísa vai não importa, desde que ela saia de $E$, passe por $S$ e $L$ (em qualquer ordem) e volte para $E$.
+A observação relevante a ser feita para esse problema é o fato de que a ordem dos lugares que Luísa vai não importa, desde que ela saia de $E$, passe por $S$ e $L$ (em qualquer ordem) e volte para $E$.
 
 ## Solução
 
