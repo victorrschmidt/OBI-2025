@@ -12,7 +12,7 @@ int main() {
 
         ll esquerda = 0;
         ll direita = b - a + 1;
-        ll melhor = -1;
+        ll melhor = b - a + 1;
 
         while (esquerda <= direita) {
             ll meio = (esquerda + direita) / 2;
@@ -27,13 +27,9 @@ int main() {
             }
         }
 
-        if (melhor != -1) {
-            cout << melhor << '\n';
-        }
-        else {
-            cout << b - a + 1 << '\n';
-        }
+        cout << melhor << '\n';
     }
 
     return 0;
 }
+
