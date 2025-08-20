@@ -10,7 +10,7 @@ int main() {
     vector<pair<int, int>> objetos(n);  // {tipo, preco}
     vector<priority_queue<pair<int, int>>> lista_tipo(t + 1);  // {preco, id}
     priority_queue<vector<int>> lista_preco;  // {preco, tipo, id}
-    vector<bool> podecomprar(n, 1);
+    vector<bool> podecomprar(n, true);
 
     for (int i = 0; i < n; i++) {
         cin >> objetos[i].second;
@@ -68,3 +68,4 @@ int main() {
 
     return 0;
 }
+
