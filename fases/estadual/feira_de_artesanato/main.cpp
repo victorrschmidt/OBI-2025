@@ -31,7 +31,7 @@ int main() {
     int c;
     cin >> c;
 
-    for (int i = 0; i < c; i++) {
+    while (c--) {
         int preco, tipo, id;
         cin >> tipo;
 
@@ -68,4 +68,3 @@ int main() {
 
     return 0;
 }
-
