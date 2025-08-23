@@ -7,7 +7,7 @@ int main() {
     int n, t;
     cin >> n >> t;
 
-    vector<pair<int, int>> objetos(n);  // {tipo, preco}
+    vector<pair<int, int>> objetos(n);  // {preco, tipo}
     vector<priority_queue<pair<int, int>>> lista_tipo(t + 1);  // {preco, id}
     priority_queue<vector<int>> lista_preco;  // {preco, tipo, id}
     vector<bool> podecomprar(n, true);
@@ -68,3 +68,4 @@ int main() {
 
     return 0;
 }
+
