@@ -19,3 +19,6 @@ Este repositório contém as submissões das provas da Olimpíada Brasileira de 
 - **Fase 2**
     - [**Questões submetidas**](fases/estadual)
     - **Pontuação:** _400/400_
+- **Fase 3**
+    - [**Questões submetidas**](fases/nacional)
+    - **Pontuação:** _276/500_
